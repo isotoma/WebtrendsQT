@@ -18,6 +18,11 @@ class WTUtility(ODBCUtility):
         prompt = 'wtqt# '
         intro = 'Webtrends Query Tool v%s' % (__version__,)
 
+        def __init__(self, *args, **kwargs):
+                ODBCUtility.__init__(self, *args, **kwargs)
+                # Add \p to the special comands
+                self.special_cmds.append('p')
+
         def do_p(self, line):
                 """\p
 List WT profiles.
