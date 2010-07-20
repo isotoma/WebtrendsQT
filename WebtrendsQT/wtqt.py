@@ -70,7 +70,7 @@ List WT profiles.
         def connect(self, schema):
                 self.dsn['schema'] = schema
                 try:
-                        conn = pyodbc.connect(self.query, **self.dsn)
+                        conn = pyodbc.connect(**self.dsn)
                         self.cursor = conn.cursor()
                 except:
                         error(e, False)
@@ -170,13 +170,13 @@ def main(argv):
         u = WTUtility()
         u.dsn = dsn
 
-        conn = pyobc.connect(dsn)
+        conn = pyodbc.connect(**dsn)
         u.cursor = conn.cursor()
 
         del dsn['ProfileGuid']
         dsn['Profile'] = 'WTSystem'
         dsn['DATABASE'] = 'WTSystem'
-        conn = pyobc.connect(dsn)
+        conn = pyodbc.connect(**dsn)
         u.system_cursor = conn.cursor()
 
         u.cmdloop()
