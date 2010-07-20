@@ -168,7 +168,7 @@ def main(argv):
 
         # Setup cursor
         u = WTUtility()
-        u.dsn = dsn
+        u.dsn = dict(dsn)
 
         conn = pyodbc.connect(**dsn)
         u.cursor = conn.cursor()
