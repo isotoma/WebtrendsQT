@@ -42,12 +42,12 @@ List WT profiles.
                 return profiles
 
         @memoized()
-        def get_schemas(self, profile_id):
+        def get_schemas(self):
                 """Helper method to return a list of templates,
                 for a given profile GUID, from WTSystem.
                 """
                 templates = [['Template GUID']]
-                r = self.system_cursor.execute('{Call wtGetTemplateList(%s)}' % (profile_id,))
+                r = self.system_cursor.execute('{Call wtGetTemplateList(%s)}' % (self.dsn['ProfileGuid'],))
                 for row in r.fetchall():
                         templates.append([row.TEMPLATE_GUID])
                 return templates
