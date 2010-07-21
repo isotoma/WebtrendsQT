@@ -62,20 +62,27 @@ List WT profiles.
         @memoized()
         def get_columns(self, name):
                 columns = [['Column name', 'Type', 'Size',]]
-                r = self.cursor.execute('SELECT * FROM %s LIMIT 1' % (table,))
+                r = self.cursor.execute('SELECT * FROM %s LIMIT 1' % (name,))
                 for row in r.cursor.description:
                         columns.append([row[0], self.db_types[row[1]], row[3],])
                 return columns
 
         def connect(self, schema):
-                self.dsn['schema'] = schema
+                dsn = dict(self.dsn)
+                parts = line.split(' ')
+                if len(parts) > 1:
+                        dsn['DATABASE'] = parts[1]
+                        dsn['ProfileGuid'] = parts[0]
+                else:
+                        dsn['DATABASE'] = line.strip()
                 try:
-                        conn = pyodbc.connect(**self.dsn)
+                        conn = pyodbc.connect(**dsn)
                         self.cursor = conn.cursor()
                 except:
                         error(e, False)
                         return False
                 else:
+                        self.dsn = dsn
                         return True
 
 # Shell script usage instrunctions, pushed to stdout
