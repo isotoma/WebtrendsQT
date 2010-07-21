@@ -56,7 +56,8 @@ List WT profiles.
         def get_tables(self):
                 tables = [['Table name']]
                 for row in self.cursor.tables():
-                        tables.append([row[2]])
+                        if row[2]:
+                                tables.append([row[2]])
                 return tables
 
         @memoized()
