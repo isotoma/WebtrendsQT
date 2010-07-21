@@ -64,7 +64,7 @@ List WT profiles.
         def get_columns(self, name):
                 columns = [['Column name', 'Type', 'Size',]]
                 r = self.cursor.execute('SELECT * FROM %s LIMIT 1' % (name,))
-                for row in r.cursor.description:
+                for row in r.cursor_description:
                         columns.append([row[0], self.db_types[row[1]], row[3],])
                 return columns
 
