@@ -16,5 +16,9 @@ setup(
     packages=find_packages(exclude=['ez_setup']),
     setup_requires=[
         'pyDBCLI[odbc]>=0.1',
-    ]
+    ],
+    entry_points="""
+    [console_scripts]
+    wtqt = WebtrendsQT.wtqt:main
+    """
 )

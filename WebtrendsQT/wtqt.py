@@ -108,10 +108,12 @@ Options:
   -k, --password: Optional password
 """
 
-def main(argv):
+def main(argv=None):
         """Main entry function for CLI script, should be
         passed CLI args tuple, normally from sys.argv
         """
+        if argv is None:
+                argv = sys.argv[1:]
         # Get CLI options
         try:
                 opts, args = getopt.getopt(
