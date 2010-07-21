@@ -86,6 +86,13 @@ List WT profiles.
                         self.dsn = dsn
                         return True
 
+# Override do_c so we can give it different help text
+        def do_c(self, line):
+                """\c [<profile ID>] <template ID>
+Change current connection to another template or profile.
+"""
+                return ODBCUtility.do_c(self, line)
+
 # Shell script usage instrunctions, pushed to stdout
 # by usage()
 USAGE_MESSAGE = """
