@@ -1,4 +1,4 @@
-``WebtrendsQT`` is an interactive command line tool for querying Webtrends analytics reporting web service via a Windows ODBC connection, allowing you to run ``psql`` and ``mysql`` like commands and raw SQL against databases respresenting reports.
+``WebtrendsQT`` is an interactive command line tool for querying a Webtrends analytics reporting web service via a Windows ODBC connection, allowing you to run ``psql`` and ``mysql`` like commands and raw SQL against databases respresenting reports.
 
 Requirements
 ============
