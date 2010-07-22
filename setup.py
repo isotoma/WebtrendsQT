@@ -25,5 +25,5 @@ setup(
     license=open('LICENSE').read(),
     long_description=open('README.rst').readline(),
     keywords='database cli interactive webtrends analysis odbc tools',
-    platforms='Windows'
+    platforms=['Windows',]
 )
