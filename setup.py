@@ -15,6 +15,7 @@ setup(
     url='http://github.com/isotoma/WebtrendsQT',
     packages=find_packages(exclude=['ez_setup']),
     setup_requires=[
+        'pyodbc>=2.0',
         'pyDBCLI[odbc]>=0.1',
     ],
     entry_points="""
