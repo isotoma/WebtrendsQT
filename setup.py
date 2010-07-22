@@ -22,8 +22,6 @@ setup(
     entry_points={
         'console_scripts': ['wtqt = WebtrendsQT.wtqt:main',],
     },
-    license=open('LICENSE').read(),
-    long_description=open('README.rst').readline(),
-    keywords='database cli interactive webtrends analysis odbc tools',
+    license='Apache License 2.0',
     platforms=['Windows',]
 )
