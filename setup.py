@@ -6,6 +6,7 @@ except ImportError:
         from ez_setup import use_setuptools
         use_setuptools()
         from setuptools import setup, find_packages
+
 setup(
     name='WebtrendsQT',
     description='Webtrends SQL query tool',
@@ -18,8 +19,11 @@ setup(
         'pyodbc>=2.0',
         'pyDBCLI[odbc]>=0.1',
     ],
-    entry_points="""
-    [console_scripts]
-    wtqt = WebtrendsQT.wtqt:main
-    """
+    entry_points={
+        'console_scripts': ['wtqt = WebtrendsQT.wtqt:main',],
+    },
+    license=open('LICENSE').read(),
+    long_description=open('README.rst').readline(),
+    keywords='database cli interactive webtrends analysis odbc tools',
+    platforms='Windows'
 )
